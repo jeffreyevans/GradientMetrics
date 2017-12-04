@@ -9,8 +9,9 @@ We have a paper in preparation but are waiting until I am finished with an analo
 
 **Bugs**: Users are encouraged to report bugs here. Go to [issues](https://github.com/jeffreyevans/GradientMetrics/issues) in the menu above, and press new issue to start a new bug report, documentation correction or feature request. You can direct questions to <jeffrey_evans@tnc.org>.
 
+# Available Functions
 
-STATISTICS​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+**STATISTICS**
 
 Covariance - (float) Calculates covariance between two [x,y] rasters.
 
@@ -27,8 +28,7 @@ Slope Impedance – (float) A sigmoidal function for an impedance slope function
 Transformations – (float) Applies statistical transformations. Includes; “standardize” - standardizes values to a mean of 0 and standard deviation of 1; “stretch” – stretches data to specified range; “normalize" - normalizes to a scale 0-1 while retaining
 distribution shape: Natural logarithmic; and Square-root.​
 
-
-SURFACE TEXTURE/CONFIGURATION
+**SURFACE TEXTURE/CONFIGURATION**
  
 Dissection - (float) Dissection describes dissection in a continuous raster surface within rectangular or circular window. Martonne’s modified dissection is calculated as:
 d=( z - z(min)) / (z(max) - z(min) )
@@ -48,8 +48,7 @@ References
 Surface Relief Ratio- (float) describes rugosity in an continuous raster surface within a specified window. The implementation of SRR can be shown as: srr=( z(mean) - z(min)) / (z(max) - z(min) )
  
 References
-    Pike, R.J., S.E. Wilson (1971). Elevation relief ratio, hypsometric integral, and geomorphic area altitude analysis. Bull. Geol.    
-      Soc.Am. 82, 1079-1084
+    Pike, R.J., S.E. Wilson (1971). Elevation relief ratio, hypsometric integral, and geomorphic area altitude analysis. Bull. Geol.    Soc.Am. 82, 1079-1084
  
 Curvature - (float) Surface curvature (concavity/convexity) index (Bolstad’s variant).
  
@@ -66,7 +65,7 @@ Surface/Area Ratio - (float) The Berry (2002) method for surface/area ratio.
 References
     Berry, J. K. 2002. Use surface area for realistic calculations. Geoworld 15(9): 20–1.
 
-TEMPERATURE AND MOISTURE
+**TEMPERATURE AND MOISTURE**
 
 Classify Aspect - (integer) Classifies aspect into discrete classes.
  
@@ -102,7 +101,7 @@ References
     Roberts. D. W., and Cooper, S. V., 1989. Concepts and techniques of vegetation mapping. In Land Classifications Based on
         Vegetation: Applications for Resource Management. USDA Forest Service GTR INT-257, Ogden, UT, pp 90-96
 
-UTILITIES​​​​​​​​​​​
+**UTILITIES**
 
 Angle conversion - (float) converts between degrees and radians.
  

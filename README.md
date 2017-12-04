@@ -58,9 +58,9 @@ Surface/Area Ratio - (float) The Berry (2002) method for surface/area ratio.
  
 *Slope/Aspect Transformations* - (float). Options are Stage’s (1976) COS, SIN; or Roberts & Cooper (1989) TRASP (topographic radiation aspect index).
 
-    COS AND SIN - An a priori assumption of a maximum in the NW quadrant (45 azimuth) and a minimum in the SW quadrant can be replaced by    an empirically determined location of the optimum (Stage, 1976). For slopes from 0% - 100%, the functions are linearized and bounded from -1 to 1. Greater than 100% slopes are treated out of the -1 to 1 range and the model sets all values greater than 100% to 101% and flat areas (-1) to nodata.
+   *COS AND SIN* - An a priori assumption of a maximum in the NW quadrant (45 azimuth) and a minimum in the SW quadrant can be replaced by    an empirically determined location of the optimum (Stage, 1976). For slopes from 0% - 100%, the functions are linearized and bounded from -1 to 1. Greater than 100% slopes are treated out of the -1 to 1 range and the model sets all values greater than 100% to 101% and flat areas (-1) to nodata.
  
-    TRASP - Circular aspect is transformed to assign a value of zero to land oriented in a north- northeast direction, (typically the coolest and wettest orientation), and a value of one on the hotter, dryer south-southwesterly slopes. The result is a continuous variable between 0 - 1 (Roberts and Cooper 1989).
+   *TRASP* - Circular aspect is transformed to assign a value of zero to land oriented in a north- northeast direction, (typically the coolest and wettest orientation), and a value of one on the hotter, dryer south-southwesterly slopes. The result is a continuous variable between 0 - 1 (Roberts and Cooper 1989).
 
 **UTILITIES**
 

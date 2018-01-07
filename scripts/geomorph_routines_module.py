@@ -55,7 +55,7 @@ def checkExt(inDem):
         if isArcMap():
             mapSRef = returnCurrentSRefOfMap()
             desc = arcpy.Describe(inDem)
-            if mapSRef.name != desc.spatialReference.name:
+            if mapSRef and mapSRef.name != desc.spatialReference.name:
                 env.outputCoordinateSystem = mapSRef
                 outRaster = Times(inDem,1)
         return outRaster
@@ -120,5 +120,7 @@ def isArcMap():
 def returnCurrentSRefOfMap():
     mxd = arcpy.mapping.MapDocument("CURRENT")
     sRef = mxd.activeDataFrame.spatialReference
+    if sRef.factoryCode == 0:
+        sRef = None
     return sRef
 

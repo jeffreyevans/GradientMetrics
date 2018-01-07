@@ -71,7 +71,7 @@ try:
 
 
 except LicenseError:
-    print "Spatial Analyst license is unavailable"
+    arcpy.AddError("Spatial Analyst license is unavailable")
 except CSError:
     arcpy.AddError("Both DEM and Flow Direction datasets must use the same coordinate system.")
 

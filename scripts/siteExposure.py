@@ -47,5 +47,5 @@ try:
     outraster.save (outRasterName)
 
 except LicenseError:
-    print "Spatial Analyst license is unavailable"
+    arcpy.AddError("Spatial Analyst license is unavailable")
 

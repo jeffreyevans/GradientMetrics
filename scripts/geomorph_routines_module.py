@@ -111,11 +111,11 @@ def getMidLat (rExt):
     return medianLat
 
 def isArcMap():
-	try:
-		mxd = arcpy.mapping.MapDocument("CURRENT")
-		return True
-	except:
-		return False
+    try:
+        mxd = arcpy.mapping.MapDocument("CURRENT")
+        return True
+    except:
+        return False
 
 def returnCurrentSRefOfMap():
     mxd = arcpy.mapping.MapDocument("CURRENT")

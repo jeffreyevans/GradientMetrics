@@ -92,7 +92,7 @@ def getZFactor(dem,inZUnits):
                 #Means xyUnits == Feet and  zUnits == Meters (not common)
                 zFactor = 3.28084
         else:
-            zFactor = 1
+            zFactor = 1.0
 
     return zFactor
 

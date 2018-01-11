@@ -19,7 +19,7 @@ class LicenseError(Exception):
     pass
 
 try:
-	#Check for spatial analyst license
+    #Check for spatial analyst license
     if arcpy.CheckExtension("Spatial") == "Available":
         arcpy.CheckOutExtension("Spatial")
     else:
@@ -35,9 +35,10 @@ try:
     sobelXFile = os.path.dirname(script_path)+'\\kernel_files\\sobelX.txt'
     sobelYFile = os.path.dirname(script_path)+'\\kernel_files\\sobelY.txt'
 
-    Gx = FocalStatistics(Raster, NbrWeight(sobelXFile), "SUM")
-    Gy = FocalStatistics(Raster, NbrWeight(sobelYFile), "SUM")
-    method =arcpy.GetParameterAsText(0)
+    Gx = FocalStatistics(r, NbrWeight(sobelXFile), "SUM")
+    Gy = FocalStatistics(r, NbrWeight(sobelYFile), "SUM")
+    method =arcpy.GetParameterAsText(1)
+
     if method == "Direction":
         outRaster = ATan2(Gy, Gx)
     else:
@@ -48,3 +49,6 @@ try:
 
     #Set message about running
     arcpy.AddMessage("Sobel "+method+" Gradient Complete.")
+
+except Exception as e:
+    arcpy.AddError("Failure executing Sobel Gradient.")

@@ -18,7 +18,7 @@ class LicenseError(Exception):
     pass
 
 try:
-	#Check for spatial analyst license
+    #Check for spatial analyst license
     if arcpy.CheckExtension("Spatial") == "Available":
         arcpy.CheckOutExtension("Spatial")
     else:

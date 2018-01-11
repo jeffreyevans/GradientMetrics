@@ -19,7 +19,7 @@ class LicenseError(Exception):
 
 
 try:
-	#Check for spatial analyst license
+    #Check for spatial analyst license
     if arcpy.CheckExtension("Spatial") == "Available":
         arcpy.CheckOutExtension("Spatial")
     else:
@@ -41,7 +41,7 @@ try:
     classValRas = CreateConstantRaster(classVal,"INTEGER",cellSize,ext)
 
     tmp1 = Con(r == classValRas,1,0)
-    tmp2 = Con(r <> classValRas,1,0)
+    tmp2 = Con(r != classValRas,1,0)
 
     tmp3 = FocalStatistics(tmp1,analysisWindow,"SUM")
     tmp4 = FocalStatistics(tmp2,analysisWindow,"SUM")

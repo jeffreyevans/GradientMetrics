@@ -55,7 +55,7 @@ def checkExt(inDem):
         if isArcMap():
             mapSRef = returnCurrentSRefOfMap()
             desc = arcpy.Describe(inDem)
-            if mapSRef.name != desc.spatialReference.name:
+            if mapSRef and mapSRef.name != desc.spatialReference.name:
                 env.outputCoordinateSystem = mapSRef
                 outRaster = Times(inDem,1)
         return outRaster
@@ -92,7 +92,7 @@ def getZFactor(dem,inZUnits):
                 #Means xyUnits == Feet and  zUnits == Meters (not common)
                 zFactor = 3.28084
         else:
-            zFactor = 1
+            zFactor = 1.0
 
     return zFactor
 
@@ -111,14 +111,16 @@ def getMidLat (rExt):
     return medianLat
 
 def isArcMap():
-	try:
-		mxd = arcpy.mapping.MapDocument("CURRENT")
-		return True
-	except:
-		return False
+    try:
+        mxd = arcpy.mapping.MapDocument("CURRENT")
+        return True
+    except:
+        return False
 
 def returnCurrentSRefOfMap():
     mxd = arcpy.mapping.MapDocument("CURRENT")
     sRef = mxd.activeDataFrame.spatialReference
+    if sRef.factoryCode == 0:
+        sRef = None
     return sRef
 

@@ -20,7 +20,7 @@ class CSError (Exception):
     pass
 
 try:
-	#Check for spatial analyst license
+    #Check for spatial analyst license
     if arcpy.CheckExtension("Spatial") == "Available":
         arcpy.CheckOutExtension("Spatial")
     else:
@@ -69,7 +69,7 @@ try:
 
 
 except LicenseError:
-    print "Spatial Analyst license is unavailable"
+    arcpy.AddError("Spatial Analyst license is unavailable")
 except CSError:
     arcpy.AddError("Both DEM and Flow Direction datasets must use the same coordinate system.")
 

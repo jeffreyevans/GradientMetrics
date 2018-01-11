@@ -1,6 +1,8 @@
 # GradientMetrics
 ArcGIS Geomorphometry &amp; Gradient Metrics toolbox
 
+The toolbox has been updated (01-08-2018), by Shaun Walbridge with ESRI, to be compatible with Python 3 and ArcGIS Pro and is still backwards compatible with Python 2.7 and ArcGIS 10.x. 
+
 Please cite the toolbox as:
 
 Evans JS, Oakleaf J, Cushman SA (2014) An ArcGIS Toolbox for Surface Gradient and Geomorphometric Modeling, version 2.0-0. URL: https://github.com/jeffreyevans/GradientMetrics Accessed: Year-Month-Date.

@@ -32,11 +32,14 @@ try:
     env.overwriteOutput = True
 
     script_path = sys.argv[0]
-    sobelXFile = os.path.dirname(script_path)+'\\kernel_files\\sobelX.txt'
-    sobelYFile = os.path.dirname(script_path)+'\\kernel_files\\sobelY.txt'
+    #sobelXFile = os.path.dirname(script_path)+'\\kernel_files\\sobelX.txt'
+    #sobelYFile = os.path.dirname(script_path)+'\\kernel_files\\sobelY.txt'
 
-    Gx = FocalStatistics(r, NbrWeight(sobelXFile), "SUM")
-    Gy = FocalStatistics(r, NbrWeight(sobelYFile), "SUM")
+    #Gx = FocalStatistics(r, NbrWeight(sobelXFile), "SUM")
+    #Gy = FocalStatistics(r, NbrWeight(sobelYFile), "SUM")
+    
+    Gx = FocalStatistics(r, arcpy.sa.NbrWeight("3 3; -1 0 1; -2 0 2; -1 0 1"), "SUM")
+    Gy = FocalStatistics(r, arcpy.sa.NbrWeight("3 3; -1 -2 -1; 0 0 0; 1 2 1"), "SUM")
     method =arcpy.GetParameterAsText(1)
 
     if method == "Direction":

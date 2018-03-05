@@ -54,7 +54,7 @@ try:
 
     outRaster = Exp( -1.467 +  1.582 * cl * tmp4  - 1.5 * tmp6 * tmp5 * sl - 0.262 * sl * tmp5  + 0.607 * tmp7 * tmp5)
 
-    outRasterName = arcpy.GetParameterAsText(1)
+    outRasterName = arcpy.GetParameterAsText(2)
     outRaster.save (outRasterName)
     #newExt = dscPrj.extent
 

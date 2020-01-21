@@ -24,6 +24,10 @@ try:
     else:
         raise LicenseError
 
+    # Set overwrite option
+    env.overwriteOutput = True
+
+    analysisWindow = arcpy.GetParameterAsText(1)
 
     inR = arcpy.GetParameterAsText(0)
     r = geomorph_routines_module.checkExt(inR)

@@ -13,58 +13,72 @@ We have a paper in preparation but are waiting until I am finished with an analo
 
 # Available Functions
 
-**STATISTICS**
+**Directionality**
 
-*Covariance* - (float) Calculates covariance between two [x,y] rasters.
+*Classify Aspect* - (integer) Classifies aspect into discrete classes.
 
-*Distributional Moments* - (float) Calculates statistical moments of a distribution within a specified window with options for: mean, median, mad, variance, standard deviation, skewness, kurtosis, coefficient of variation. Future release(s) will also have skewness and kurtosis.
+*Linear Aspect* - (float) - Transforms circular aspect to a linear variable.
  
-*Gaussian raster* - (float) Creates a grid of random Gaussian distributed values where mean and standard deviation can be defined (default mean is 0 and standard deviation is 1).
- 
+*Mean Slope* - (float) Mean of slope within a defined window.
+
+**Statistics**
+
+*Correlation/Covariance* - (float) Calculates correlation or covariance between two [x,y] rasters.
+
+*Deviation from Trend* - Deviation in local window, from a polynomial trend. Allows for detrending the raster as well.
+
+*Gaussian Smoothing* - Smooths raster data using a Gaussian kernel
+
 *Invert raster* - (float) inverts (flips) the values of a float raster.
 
-*Random raster* (Not yet implemented) - (float) Creates grid of random Gaussian distributed values given defined min-max values.
+*Local Deviation from Global* - Calculated the local deviation from a global mean or median
+
+*Moments* - (float) Calculates statistical moments of a distribution within a specified window with options for: mean, median, mad, variance, standard deviation, skewness, kurtosis, coefficient of variation. Future release(s) will also have skewness and kurtosis.
+ 
+*Normal* - (float) Creates a grid of random Gaussian distributed values where mean and standard deviation can be defined (default mean is 0 and standard deviation is 1).
  
 *Slope Impedance* – (float) A sigmoidal function for an impedance slope function.
- 
+
+*Soble Gradient* - Derives the intensity or direction of a Soble kernel
+
 *Transformations* – (float) Applies statistical transformations. Includes; “standardize” - standardizes values to a mean of 0 and standard deviation of 1; “stretch” – stretches data to specified range; “normalize" - normalizes to a scale 0-1 while retaining
 distribution shape: Natural logarithmic; and Square-root.​
 
-**SURFACE TEXTURE/CONFIGURATION**
- 
+**Surface Texture**
+
 *Dissection* - (float) Dissection describes dissection in a continuous raster surface within rectangular or circular window. Martonne’s modified dissection is calculated as:
 d=( z - z(min)) / (z(max) - z(min) )
+
+*Landform* - Concavity/convexity landform index (Bolstad’s variant). 
  
 *Roughness* - (float) represents the roughness in a continuous raster within a specified window.
+
+*Slope Position* - (float) calculates scalable slope position by subtracting a focalmean raster from the original elevation raster.
+Surface/Area Ratio - (float) The Berry (2002) method for surface/area ratio.
+
+*Surface Area Ratio* - The Berry (2002) method for surface/area ratio.
  
 *Surface Relief Ratio* - (float) describes rugosity in an continuous raster surface within a specified window. The implementation of SRR can be shown as: srr=( z(mean) - z(min)) / (z(max) - z(min) )
   
-*Curvature* - (float) Surface curvature (concavity/convexity) index (Bolstad’s variant).
- 
-*Slope Position* - (float) calculates scalable slope position by subtracting a focalmean raster from the original elevation raster.
-Surface/Area Ratio - (float) The Berry (2002) method for surface/area ratio.
- 
-**TEMPERATURE AND MOISTURE**
+**Temperature and Moisture**
 
-*Classify Aspect* - (integer) Classifies aspect into discrete classes.
+*2nd Derivative Slope* - (float) Calculates 2nd derivate of slope.
  
 *Compound Topographic Index (CTI)* - (float) is a steady state wetness index. The CTI is a function of both the slope and the upstream contributing area per unit width orthigonal to the flow direction. The implementation of CTI can be shown as: CTI=ln (As / (tan (beta)) where; As=Area Value calculated as (flow accumulation + 1 ) * (pixel area in m2) and beta is the slope expressed in radians.
   
 *Heat load index (HLI)* - (float) A southwest facing slope should have warmer temperatures than a southeast facing slope, even though the amount of solar radiation they receive is equivalent. The McCune and Keon (2002) method accounts for this by "folding" the aspect so that the highest values are southwest and the lowest values are northeast. Additionally, this method account for steepness of slope, which is not addressed in most other aspect rescaling equations.
- 
-*Linear Aspect* - (float) - Transforms circular aspect to a linear variable.
- 
-*Mean Slope* - (float) Mean of slope within a defined window.
- 
-*Slope 2nd Derivative* - (float) Calculates 2nd derivate of slope.
- 
+
+*Integrated Moisture Index* - Calculates an integrated moisture index (Iverson et al. 1997)
+
+*Site Exposure Index* - Calculates a site exposure index (Balice et al. 2000)  
+
 *Slope/Aspect Transformations* - (float). Options are Stage’s (1976) COS, SIN; or Roberts & Cooper (1989) TRASP (topographic radiation aspect index).
 
    *COS AND SIN* - An a priori assumption of a maximum in the NW quadrant (45 azimuth) and a minimum in the SW quadrant can be replaced by    an empirically determined location of the optimum (Stage, 1976). For slopes from 0% - 100%, the functions are linearized and bounded from -1 to 1. Greater than 100% slopes are treated out of the -1 to 1 range and the model sets all values greater than 100% to 101% and flat areas (-1) to nodata.
  
    *TRASP* - Circular aspect is transformed to assign a value of zero to land oriented in a north- northeast direction, (typically the coolest and wettest orientation), and a value of one on the hotter, dryer south-southwesterly slopes. The result is a continuous variable between 0 - 1 (Roberts and Cooper 1989).
 
-**UTILITIES**
+**Utilities**
 
 *Angle conversion* - (float) converts between degrees and radians.
  
@@ -73,6 +87,7 @@ Surface/Area Ratio - (float) The Berry (2002) method for surface/area ratio.
 *Missing Data Fill* - Fills in NoData gaps using a specified FocalMedian, FocalMean (for float data) or FocalMajority (for integer data) window.
  
 *Sieve* - (integer) Smoothes discrete data using a sieve approach. User defines minimal number of cells to be retained. Much more controllable and stable then FocalMajority. Easy way to establish a minimal mapping unit.
+
 
 **References**
 
